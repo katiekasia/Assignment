@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
@@ -19,7 +20,43 @@ namespace InMemoryRepositories
             return Task.FromResult(post);
         }
 
+        public Task UpdateAsync(Post post)
+        {
+            Post? existingPost = posts.SingleOrDefault(p => p.Id == post.Id);
+            if (existingPost is null)
+            {
+                throw new InvalidOperationException(
+                    $"Post with ID '{post.Id}' not found");
+            }
 
+            posts.Remove(existingPost);
+            posts.Add(post);
+            return Task.CompletedTask;
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            Post? postToRemove = posts.SingleOrDefault(p => p.Id == id);
+            if (postToRemove is null)
+            {
+                throw new InvalidOperationException(
+                    $"Post with ID '{id}' not found");
+            }
+
+            posts.Remove(postToRemove);
+            return Task.CompletedTask;
+        }
+
+        public Task<Post> GetSingleAsync(int id)
+        {
+            Post? postToGet = posts.SingleOrDefault(p => p.Id == id);
+            return Task.FromResult(postToGet);
+        }
+
+        public IQueryable<Post> GetMany()
+        {
+            return posts.AsQueryable();
+        }
 
     }
 }
