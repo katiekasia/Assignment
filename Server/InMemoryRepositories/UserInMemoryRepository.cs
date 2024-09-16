@@ -8,7 +8,7 @@ namespace InMemoryRepositories
 {
     public class UserInMemoryRepository
     {
-        private List<User> users;
+        private List<User> users = new List<User>();
         public Task<User> AddAsync(User user)
         {
             user.Id = users.Any() 

@@ -8,7 +8,7 @@ namespace InMemoryRepositories
 {
     public class CommentInMemoryRepository
     {
-        public List<Comment> comments;
+        public List<Comment> comments = new List<Comment>();
 
         public Task<Comment> AddAsync(Comment comment)
         {
