@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
+using RepositoryContracts;
 
 namespace InMemoryRepositories
 {
-    public class CommentInMemoryRepository
+    public class CommentInMemoryRepository : ICommentRepository
     {
         public List<Comment> comments = new List<Comment>();
 

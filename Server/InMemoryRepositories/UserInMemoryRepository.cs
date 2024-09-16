@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
+using RepositoryContracts;
 
 namespace InMemoryRepositories
 {
-    public class UserInMemoryRepository
+    public class UserInMemoryRepository : IUserRepository
     {
         private List<User> users = new List<User>();
         public Task<User> AddAsync(User user)
