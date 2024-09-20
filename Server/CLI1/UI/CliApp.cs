@@ -13,7 +13,7 @@ namespace CLI1.UI
         private readonly IUserRepository userRepository;
         private readonly ICommentRepository commentRepository;
         
-       public  CliApp(IUserRepository userRepository, ICommentRepository commentRepository, IPostRepository postRepository)
+       public CliApp(IUserRepository userRepository, ICommentRepository commentRepository, IPostRepository postRepository)
        {
            this.postRepository = postRepository;
            this.userRepository = userRepository;

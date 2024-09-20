@@ -14,7 +14,7 @@ namespace CLI1.UI.ManagePosts
         public void ManagePosts()
         {
             var createPostView = new CreatePostView(postRepository);
-            var singlePostsView = new SinglePostsView(postRepository);
+            var listPostsView = new ListPostsView(postRepository);
             Console.Clear();
             Console.WriteLine("#-------------  MANAGE POSTS PAGE  ---------------#");
             Console.WriteLine("#----------  PICK AN OPTION BESTIEEE  ------------#");
@@ -28,7 +28,7 @@ namespace CLI1.UI.ManagePosts
             }
             else if (input.Equals("2"))
             {
-                singlePostsView.SinglePostView();
+                listPostsView.ListPosts();
             }
         }
         
